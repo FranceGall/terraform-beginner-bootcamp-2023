@@ -1,5 +1,5 @@
 # Terraform Beginner Bootcamp 2023
-## Semantic Versioning
+## Semantic Versioning :mage:
 
 Given a version number **MAJOR.MINOR.PATCH**, eg. `1.3.56` increment the:
 
