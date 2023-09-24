@@ -74,3 +74,33 @@ alternatively:
 ```
 chmod 744 ./bin/install_terraform_cli
 ```
+
+#### Working with ENV vars
+
+We can list out all Environment Variables (ENV Vars) using the `env` command
+We can filter specific ENV Vars using grep eg. ` env | grep GITPOD`
+In the terminal we can set using `export HELLO='world'
+In the terminal we can unset value of ENV Var using `unset HELLO`
+We can set an ENV Vat temporarely when just running a command
+
+```sh
+HELLO='world' ./bin/print_message
+```
+Within a bash script we can set ENV without writing export eg. 
+```
+HELLO='world
+
+echo $HELLO
+```
+
+#### Printing Vars
+We can print an ENV Var using echo eg `echo $HELLO`
+
+#### Scoping of ENV Vars
+When you open up new bash terminals in VSCODE it will not be aware of ENV Vars that you have set in another window.
+If you want to ENV Vars to persist across all future bash terminals that are open need to set env vars in your bash profile eg. `.bash_profile`
+
+We can persist env vars into gitpod by storing them in Gitpod Secrets Storage eg. 
+```
+gp env HELLO='world'
+```
