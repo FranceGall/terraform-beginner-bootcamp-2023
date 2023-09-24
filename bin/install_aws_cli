@@ -13,4 +13,3 @@ aws sts get-caller-identity
 
 cd $PROJECT_ROOT
 
-We need to geenrate AWS CLI credits from IAM User in order to the user AWS CLI (Client Secret)

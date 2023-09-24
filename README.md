@@ -123,6 +123,8 @@ IF there is any valid user, you'll get something like this:
     "Arn": "arn:aws:iam::640012971074:user/terraform-beginner-bootcamp-patrick"
 }
 ```
+We need to geenrate AWS CLI credits from IAM User in order to the user AWS CLI (Client Secret)
+
 #### AWS Keys to store in Terminal
 export AWS_ACCESS_KEY_ID='AKIAZKA56EXAMPLE'
 export AWS_SECRET_ACCESS_KEY='ricAwsSDDqvkpe5YbtVcdSvsEXAMPLE'
