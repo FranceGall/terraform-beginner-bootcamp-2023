@@ -135,6 +135,53 @@ gp env AWS_ACCESS_KEY_ID='AKIAZKA56EXAMPLE'
 gp env AWS_SECRET_ACCESS_KEY='ricAwsSDDqvkpe5YbtVcdSvsEXAMPLE'
 gp env AWS_DEFAULT_REGION=us-east-1
 
-### Terraform file main.tf
+## Terraform Basics
+### Terraform Registry - file main.tf
 Use Random from Terraform
-https://registry.terraform.io/providers/hashicorp/random/latest/docs
+[Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random/latest/docs)
+
+Terraform source their providers and modules from the Terraform registry which located at [registry.terraform.io](https://registry.terraform.io/)
+
+- **Providers** is an interfce to APIs that will allow to create resources in Terraform
+- **Modules** are a way to make large amount of Terraform code modular, portable and sharable.
+
+### Terraform Console
+We can see a list of all Terraform commands by typing `terraform`
+
+### Prepare working directory for other Terraform commands:
+terraform       --> help
+
+#### Terraform init 
+`terraform init`
+At the start of a new Terrafrom project we will run `terraform init` to download the binaries for the terraform providers that we'll use in this project
+- creates 1 folder and 1 file: .terraform>terraform-provider-random_v3.5 &.terraform.lock.hcl
+
+#### Terraform plan 
+`terraform plan`
+This will generate out a changeset, about the state of our infrastructure and what will be changed.
+We can output this changeset ie. "plan" to be passed to an apply, but often you can just ignore outputting.
+- create a change set (file as is and planned changed)
+
+#### Terraform apply
+`terraform apply`
+This will run a plan and pass the changeset to be executed by terraform. Apply should prompt yes or no.
+- generate delta plan and execute terraform plan.
+
+If you want to automatically approve an apply we can provide the auto approve flag eg. 
+`terraform apply --auto-approve` 
+- apply with auto approval
+
+### Terraform Lock Files
+`.terraformlock.hcl` contains the locked versioning for the providers or modules that should be used with this project
+The Terraform Lock File should be commited to your **Version Control System** eg. GitHub
+
+### Terraform State Files
+`.terraform.tfstate` contain information about the current state of your infractructure.
+This file **should not be commited** to your VCS.
+This file can contain sensitive data.
+If you lose this file, you lose knowing the state of your infrastructure.
+
+`.terraform.tfstate.backup` is the previous state file state.
+
+### Terraform Directory
+`terraform plan`
