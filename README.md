@@ -134,3 +134,7 @@ export AWS_DEFAULT_REGION=us-east-1
 gp env AWS_ACCESS_KEY_ID='AKIAZKA56EXAMPLE'
 gp env AWS_SECRET_ACCESS_KEY='ricAwsSDDqvkpe5YbtVcdSvsEXAMPLE'
 gp env AWS_DEFAULT_REGION=us-east-1
+
+### Terraform file main.tf
+Use Random from Terraform
+https://registry.terraform.io/providers/hashicorp/random/latest/docs
