@@ -123,7 +123,7 @@ IF there is any valid user, you'll get something like this:
     "Arn": "arn:aws:iam::640012971074:user/terraform-beginner-bootcamp-patrick"
 }
 ```
-We need to geenrate AWS CLI credits from IAM User in order to the user AWS CLI (Client Secret)
+We need to generate AWS CLI credits from IAM User in order to the user AWS CLI (Client Secret)
 
 #### AWS Keys to store in Terminal
 export AWS_ACCESS_KEY_ID='AKIAZKA56EXAMPLE'
@@ -171,11 +171,16 @@ If you want to automatically approve an apply we can provide the auto approve fl
 `terraform apply --auto-approve` 
 - apply with auto approval
 
-### Terraform Lock Files
+#### Terraform Destroy
+`terraform destroy`
+This will destroy resources.
+You can also use the --auto-approve to destroy and skip the approve check.
+
+#### Terraform Lock Files
 `.terraformlock.hcl` contains the locked versioning for the providers or modules that should be used with this project
 The Terraform Lock File should be commited to your **Version Control System** eg. GitHub
 
-### Terraform State Files
+#### Terraform State Files
 `.terraform.tfstate` contain information about the current state of your infractructure.
 This file **should not be commited** to your VCS.
 This file can contain sensitive data.
