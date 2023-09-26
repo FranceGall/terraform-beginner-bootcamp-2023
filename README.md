@@ -210,7 +210,7 @@ open /home/gitpod/.terraform.d/credentials.tfrc.json
 {
      "credentials": {
         "app.terraform.io": {
-            "token": "tWA8TkJakFQyWw.atlasv1.66vItB6IqAFGbtZRXLVTrwbz5Fk8jDzdhsdYFm7CzpZafOG9FEG9AYtB6XM8lOmnGjc"
+            "token": "EXAMPLE_tlasv1.66vItB6IqAFGbtZRXLVTrwbz5Fk8jDzdhsdYFm7CzpZafOG9FEG9AYtB6XM8lOmnGjc"
         }
      }
 }
