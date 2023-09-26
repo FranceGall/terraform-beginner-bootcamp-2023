@@ -247,3 +247,18 @@ Send the tag to GitHub
 git push --tags
 ## Automated Terraform Cloud Token Credentials by creating a bash file for TERRAFORM_CLOUD_TOKEN
 See file ./bin/generate_trfc_credentials for bash
+
+## Create Terraform Alias TF with bash
+See file ./bin/set_tf_alias , also executed from gitpod.yml
+```sh
+open ~/.bash_profile
+```
+Add the following string into the file
+```
+alias tf="terraform"
+```
+To load bash profile into memory to be available for execution
+```
+source ~/.bash_profile
+```
+Defining the bash to add automatically (alias tf="terraform") into the bash profile file. Otherwise we would need to execute the `source ~/.bash_profile`` command each time we create a new workspace.
