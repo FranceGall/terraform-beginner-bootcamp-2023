@@ -190,3 +190,47 @@ If you lose this file, you lose knowing the state of your infrastructure.
 
 ### Terraform Directory
 `terraform plan`
+
+#### Terraform token
+When attempting to run `terraform login` it will open a new screen but doesn't accept the token. In order to login into Terraform we need to create a token in Terraform and add the value of the token inside the file "credentials.tfrc.json" 
+terra-house-superfly
+
+- Create new token 
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+- Create the new file 
+```
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+- Edit the file       
+```
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+{
+     "credentials": {
+        "app.terraform.io": {
+            "token": "tWA8TkJakFQyWw.atlasv1.66vItB6IqAFGbtZRXLVTrwbz5Fk8jDzdhsdYFm7CzpZafOG9FEG9AYtB6XM8lOmnGjc"
+        }
+     }
+}
+```
+
+## Git Commands from Bash in Gitpod
+
+Pull latest from GitHub
+```
+git pull
+```
+Fetch GitHub
+```
+git fetch
+```
+Get All
+```
+git add .
+```
+Save temporarely until we can select our branch
+```
+git stash save
+```
