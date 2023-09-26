@@ -234,3 +234,16 @@ Save temporarely until we can select our branch
 ```
 git stash save
 ```
+Return to Main branch in Gitpod with this bash command;
+```
+git checkout main
+```
+Apply Tag after checkout
+```
+git tag 0.7.0
+```
+Send the tag to GitHub
+```
+git push --tags
+## Automated Terraform Cloud Token Credentials by creating a bash file for TERRAFORM_CLOUD_TOKEN
+See file ./bin/generate_trfc_credentials for bash
