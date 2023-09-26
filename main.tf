@@ -1,3 +1,11 @@
+
+cloud {
+  organization = "ExamProPatrick"
+  workspace {
+    name = "terra-house-superfly"
+  }
+}
+
 terraform {
   required_providers {
     random = {
