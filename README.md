@@ -1,4 +1,10 @@
 # Terraform Beginner Bootcamp 2023
+
+## Table of Contents
+
+- [Semantic Versioning](#semantic-versioning-mage)
+- [Install Terraform CLI](#aws-cli-installation)
+    - [Considerations with Terraform CLI change](#consideration-withthe-terrform-cli-changes)
 ## Semantic Versioning :mage:
 
 Given a version number **MAJOR.MINOR.PATCH**, eg. `1.3.56` increment the:
