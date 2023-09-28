@@ -7,7 +7,7 @@
   * [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
   * [Shebang](#shebang)
   * [Linux Permissions](#linux-permissions)
-  * [Gitpod Lifecycles](#gitpod-lifecycles)
+- [Gitpod Lifecycles](#gitpod-lifecycles)
   * [Execution Considerations](#execution-considerations)
     + [Working with ENV vars](#working-with-env-vars)
     + [Printing Vars](#printing-vars)
@@ -89,7 +89,7 @@ When executing the bash script we can use the `./` shorthand notification to exe
 CHMOD is used to update permissions on a file or folder. For example, we could use CHMOD 777 filename to grant access to everything. OWNER.GROUP.OTHER
 [Linux Permissions](https://en.wikipedia.org/wiki/File-system_permissions)
 
-### Gitpod Lifecycles 
+## Gitpod Lifecycles 
 Before Init & Command - We need to be careful when using the Init because it will not rerun if we restart an existing workspace.
 Used by the file [.gitpod.yml](.gitpod.yml)
 https://www.gitpod.io/docs/configure/workspaces/tasks
@@ -111,7 +111,7 @@ alternatively:
 chmod 744 ./bin/install_terraform_cli
 ```
 
-#### Working with ENV vars
+## Working with ENV vars
 
 We can list out all Environment Variables (ENV Vars) using the `env` command
 We can filter specific ENV Vars using grep eg. ` env | grep GITPOD`
@@ -129,10 +129,10 @@ HELLO='world
 echo $HELLO
 ```
 
-#### Printing Vars
+### Printing Vars
 We can print an ENV Var using echo eg `echo $HELLO`
 
-#### Scoping of ENV Vars
+### Scoping of ENV Vars
 When you open up new bash terminals in VSCODE it will not be aware of ENV Vars that you have set in another window.
 If you want to ENV Vars to persist across all future bash terminals that are open need to set env vars in your bash profile eg. `.bash_profile`
 
@@ -140,7 +140,7 @@ We can persist env vars into gitpod by storing them in Gitpod Secrets Storage eg
 ```
 gp env HELLO='world'
 ```
-### AWS CLI Installation
+## AWS CLI Installation
 
 AWS CLI is installed for the project via the bash script [`./bin/install_aws_cli`](./bin/install_terraform_cli)
 
