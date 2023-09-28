@@ -1,15 +1,45 @@
 # Terraform Beginner Bootcamp 2023
 
 ## Table of Contents
+- [Semantic Versioning](#semantic-versioning)
+  * [Consideration withthe Terrform CLI changes](#consideration-withthe-terrform-cli-changes)
+  * [Consideration for Linux Distribution](#consideration-for-linux-distribution)
+  * [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
+  * [Shebang](#shebang)
+  * [Linux Permissions](#linux-permissions)
+  * [Gitpod Lifecycles](#gitpod-lifecycles)
+  * [Execution Considerations](#execution-considerations)
+    + [Working with ENV vars](#working-with-env-vars)
+    + [Printing Vars](#printing-vars)
+    + [Scoping of ENV Vars](#scoping-of-env-vars)
+  * [AWS CLI Installation](#aws-cli-installation)
+    + [AWS Keys to store in Terminal](#aws-keys-to-store-in-terminal)
+    + [AWS Keys to store in Gitpod](#aws-keys-to-store-in-gitpod)
+- [Terraform Basics](#terraform-basics)
+  * [Terraform Registry - file main.tf](#terraform-registry---file-maintf)
+  * [Terraform Console](#terraform-console)
+  * [Prepare working directory for other Terraform commands](#prepare-working-directory-for-other-terraform-commands)
+    + [Terraform init](#terraform-init)
+    + [Terraform plan](#terraform-plan)
+    + [Terraform apply](#terraform-apply)
+    + [Terraform Destroy](#terraform-destroy)
+    + [Terraform Lock Files](#terraform-lock-files)
+    + [Terraform State Files](#terraform-state-files)
+  * [Terraform Directory](#terraform-directory)
+    + [Terraform token](#terraform-token)
+- [Automated Token Credentials](#automated-token-credentials)
+- [Create Terraform Alias TF with bash](#create-terraform-alias-tf-with-bash)
 
-- [Semantic Versioning](#semantic-versioning-mage)
-- [Install Terraform CLI](#aws-cli-installation)
-    - [Considerations with Terraform CLI change](#consideration-withthe-terrform-cli-changes)
-## Semantic Versioning :mage:
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+- [Github Markdown TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
+
+
+## Semantic Versioning
 
 Given a version number **MAJOR.MINOR.PATCH**, eg. `1.3.56` increment the:
 
-thie project is going to utilize semantic versioning for its tagging.
+This project is going to utilize semantic versioning for its tagging.
+
 [semver.org](http://semver.org)
 
 **MAJOR** version when you make incompatible API changes
@@ -59,8 +89,8 @@ When executing the bash script we can use the `./` shorthand notification to exe
 CHMOD is used to update permissions on a file or folder. For example, we could use CHMOD 777 filename to grant access to everything. OWNER.GROUP.OTHER
 [Linux Permissions](https://en.wikipedia.org/wiki/File-system_permissions)
 
-### Gitpod Lifecycles (Before, Init, Command)
-We need to be careful when using the Init because it will not rerun if we restart an existing workspace.
+### Gitpod Lifecycles 
+Before Init & Command - We need to be careful when using the Init because it will not rerun if we restart an existing workspace.
 Used by the file [.gitpod.yml](.gitpod.yml)
 https://www.gitpod.io/docs/configure/workspaces/tasks
 
@@ -154,7 +184,7 @@ Terraform source their providers and modules from the Terraform registry which l
 ### Terraform Console
 We can see a list of all Terraform commands by typing `terraform`
 
-### Prepare working directory for other Terraform commands:
+### Prepare working directory for other Terraform commands
 terraform       --> help
 
 #### Terraform init 
@@ -251,7 +281,8 @@ git tag 0.7.0
 Send the tag to GitHub
 ```
 git push --tags
-## Automated Terraform Cloud Token Credentials by creating a bash file for TERRAFORM_CLOUD_TOKEN
+## Automated Token Credentials
+Automated Token Credentials for TERRAFORM_CLOUD_TOKEN with bash
 See file ./bin/generate_trfc_credentials for bash
 
 ## Create Terraform Alias TF with bash
