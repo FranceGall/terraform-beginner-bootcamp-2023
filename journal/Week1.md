@@ -57,3 +57,20 @@ Terraform also automatically loads a number of variable definitions files if the
 - Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
 - Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
 
+## Dealing with Configuration Drift
+
+## What happen when losing our Terraform state file?
+
+If we lose ouor statefile, you most likely have to tear down all you cloud infractructure manually.
+
+You can use Terraform import but it won't work for all cloud resources. You need to check the terraform providers documentation for which resource support import.
+
+### Fix Missing Resource with Terraform Import
+
+`terraform import aws_s3_bucket.bucket <bucket-name>`
+
+eg. terraform import aws_s3_bucket.example hfqbnr2rfx3jkcsa
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/)
