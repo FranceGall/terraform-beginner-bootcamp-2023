@@ -74,3 +74,47 @@ eg. terraform import aws_s3_bucket.example hfqbnr2rfx3jkcsa
 [Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
 
 [AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/)
+
+### Fix using Terraform Refresh
+
+```sh
+terraform apply -refresh-only --auto-approve
+```
+
+## Terraform Module
+
+### Terraform Module Structure
+
+It is recommended to place modules in a `module` directory when locally developing modules, 
+but you can name it whatever you like.
+
+Separate the application into two modules:
+-- CDN
+|-- Cloudfront Distribution
+|-- Origin Access Controls
+-- Storage
+|-- Bucket Policy
+|-- S3 Bucket
+|-- Static Website Hosting
+|-- AWS Caller Identity Current
+
+### Passing Input Variables
+We can pass input variables into our module, 
+the module has to declare the terraform variables in its own variables.tf
+```tf
+module terrahouse_aws" {
+  user_uuid = var.user.uuid
+  bucket_name = var.bucket_name
+```
+
+### Modules Sources
+Using the source we can import the module from various plages eg:
+- locally
+- GitHub
+- Terraform Registry
+
+```tf
+module terrahouse_aws" {
+  source = "./modules/terraform_aws"
+```
+
