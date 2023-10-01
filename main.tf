@@ -1,13 +1,8 @@
-#cloud {
-#  organization = "ExamProPatrick"
-#  workspace {
-#    name = "terra-house-superfly"
-#  }
-#}
-
-resource "aws_s3_bucket" "website_bucket" {
-  bucket = var.bucket_name
-  tags = {
-    UserUuid = var.user_uuid
-  }
+terraform {
+}
+# Reference to module from main.tf
+module terrahouse_aws {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
 }
