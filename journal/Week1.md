@@ -118,3 +118,50 @@ module terrahouse_aws" {
   source = "./modules/terraform_aws"
 ```
 
+##Considerations when using ChatGPT to get Terraform code
+
+LLMs such as ChatGPT may not be trained up to date from the latest documentation.
+It will most likely generate code based on previous older versions which may be deprecated today.
+
+## Working with Files in Terraform
+
+### FileExists Function
+#https://developer.hashcorp.com/terraform/language/functions/fileexists
+Terraform function checks the existance of a file.
+
+```tf
+condition = fileexists(vat.error_html_filepath)
+```
+
+### Filemd5 
+#https://developer.hashicorp.com/terraform/language/functions/filemd5
+
+
+### Path Variable
+
+In terraform there is a special variable called `path` that allows to reference local paths:
+- path.module = get the path for the current module
+- path.root = get the path for the root module of the project
+[Special Path Variable](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+## Fixing Tags in Graph
+[How to Delete Local and Remote Tags on Git](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+
+Delete Local Tag
+```sh
+git tag - d <tag_name>
+```
+
+Delete Remote Tag
+```sh
+git push --delete origin <tag_name>
+```
+
+Checkout the Commit that you want to retag. Get the corresponding SHA for the branch from GitHub history.
+
+```sh
+git checkout <SHA>
+git tag M.M.P
+git push --tags
+git checkout main
+```
