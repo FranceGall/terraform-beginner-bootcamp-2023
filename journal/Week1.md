@@ -255,3 +255,65 @@ resource "aws_instance" "web" {
   }
 }
 ```
+
+## Terraform-Console
+
+### Command
+```tf
+terraform console
+```
+
+### List files in Assets folder
+```tf console 
+fileset("${path.root}/public/assets","*.{jpg,png}")
+```
+
+## Collection Types
+
+### List
+List is like an array, you use an integer as the index to retrieve the value
+
+```
+variable "planet" {
+  type  = list
+  default = ["mars", "earth", "moon"]
+}
+username = var.users[0]
+```
+### Map
+Map is like a Ruby Hash or single nested JSON object. You use a key as the index to retrieve the value.
+
+```
+variable "plans" {
+  type  = map
+  default = {
+    "PlanA   = "10 USD"
+    "PlanB   = "50 USD"
+    "PlanC"  = "100 USD"
+    }
+}
+plan = var.plans["PlanB]
+```
+### Set
+Set is similar to a list but has no secondary index or preserved ordering, all values must be of the same type and will be cast to match based on the first element
+
+```tf console
+> toset(["a", "b", 3])
+[
+  "a",
+  "b",
+  "3"
+]
+```
+
+
+```
+
+## For Each Expression
+For each allows to enumerate over complex data types
+
+```sh
+[for s in var.list : upper(s)]
+```
+This is mostly useful when you are creating multiples of a cloud resource and you want to reduce the amount of repetitive terraform code.
+[For_Each Expression](developer.hashicorp.com/terraform/language/expression/for)
