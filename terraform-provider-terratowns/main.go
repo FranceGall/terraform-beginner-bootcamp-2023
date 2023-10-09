@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // package main: Declares the package name. 
 // The main package is special in Go, it's where the execution of the program starts.
 package main
@@ -17,6 +18,7 @@ import (
 )
 // func main(): Defines the main function, the entry point of the app. 
 // When you run the program, it starts executing from this function.
+
 func main() {
 	plugin.Serve(&plugin.ServeOpts{
 		ProviderFunc: Provider,
@@ -26,6 +28,7 @@ func main() {
 	fmt.Println("Hello, world!")
 }
 
+
 type Config struct {
 	Endpoint string
 	Token string
@@ -33,6 +36,7 @@ type Config struct {
 }
 
 // in golang, a titlecase function will get exported.
+
 func Provider() *schema.Provider {
 	var p *schema.Provider
 	p = &schema.Provider{
@@ -326,3 +330,4 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	log.Print("resourceHouseDelete:end")
 	return diags
 }
+
