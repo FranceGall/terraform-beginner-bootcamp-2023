@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // package main: Declares the package name. 
 // The main package is special in Go, it's where the execution of the program starts.
 package main
@@ -104,27 +103,27 @@ func Resource() *schema.Resource {
 			"name": {
 				Type: schema.TypeString,
 				Required: true,
-				Description: "Name of home",
+				Description: "Name of Home",
 			},
 			"description": {
 				Type: schema.TypeString,
 				Required: true,
-				Description: "Description of home",
+				Description: "Description of Home",
 			},
 			"domain_name": {
 				Type: schema.TypeString,
 				Required: true,
-				Description: "Domain name of home eg. *.cloudfront.net",
+				Description: "Domain name of Home eg. *.cloudfront.net",
 			},
 			"town": {
 				Type: schema.TypeString,
 				Required: true,
-				Description: "The town to which the home will belong to",
+				Description: "The Town to which the Home will belong to",
 			},
 			"content_version": {
 				Type: schema.TypeInt,
 				Required: true,
-				Description: "The content version of the home",
+				Description: "The content version of the Home",
 			},
 		},
 	}
@@ -152,7 +151,8 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 
 	url :=  config.Endpoint+"/u/"+config.UserUuid+"/homes"
 	log.Print("URL: "+ url)
-	// Construct the HTTP Request
+
+	// Construct the HTTP Request with POST
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(payloadBytes))
 	if err != nil {
 		return diag.FromErr(err)
@@ -199,7 +199,7 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 
 	homeUUID := d.Id()
 
-	// Construct the HTTP Request
+	// Construct the HTTP Request with GET
 	url := config.Endpoint+"/u/"+config.UserUuid+"/homes/"+homeUUID
 	log.Print("URL: "+ url)
 	req, err := http.NewRequest("GET", url, nil)
@@ -259,7 +259,7 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 		return diag.FromErr(err)
 	}
 
-	// Construct the HTTP Request
+	// Construct the HTTP Request with PUT
 	url := config.Endpoint+"/u/"+config.UserUuid+"/homes/"+homeUUID
 	log.Print("URL: "+ url)
 	req, err := http.NewRequest("PUT", url, bytes.NewBuffer(payloadBytes))
@@ -300,7 +300,8 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 
 	homeUUID := d.Id()
 
-	// Construct the HTTP Request
+
+	// Construct the HTTP Request with DELETE
 	url :=  config.Endpoint+"/u/"+config.UserUuid+"/homes/"+homeUUID
 	log.Print("URL: "+ url)
 	req, err := http.NewRequest("DELETE", url , nil)
@@ -330,4 +331,3 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	log.Print("resourceHouseDelete:end")
 	return diags
 }
-
