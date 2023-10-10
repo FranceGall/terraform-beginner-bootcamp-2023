@@ -5,7 +5,7 @@ terraform {
       version = "1.0.0"
     }
   }
-
+}
 provider "terratowns" {
   endpoint = "http://localhost:4567/api"
   user_uuid="e328f4ab-b99f-421c-84c9-4ccea042c7d1" 
@@ -22,3 +22,14 @@ provider "terratowns" {
 #  content_version = var.content_version
 #  assets_path = var.assets_path
 #}
+
+resource "terratowns_home" "superfly" {
+  name = "SuperFly"
+  description = <<DESCRIPTION
+  Man's Game from the Bronx where everything is possible.,,maybe!
+  DESCRIPTION
+//  domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = "patricio.cloudfront.net"
+  town= "gamers-grotto"
+  content_version = 1
+}
