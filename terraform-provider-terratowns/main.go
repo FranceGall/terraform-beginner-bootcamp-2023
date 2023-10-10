@@ -151,6 +151,7 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 
 	url :=  config.Endpoint+"/u/"+config.UserUuid+"/homes"
 	log.Print("URL: "+ url)
+
 	// Construct the HTTP Request with POST
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(payloadBytes))
 	if err != nil {
@@ -299,6 +300,7 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 
 	homeUUID := d.Id()
 
+
 	// Construct the HTTP Request with DELETE
 	url :=  config.Endpoint+"/u/"+config.UserUuid+"/homes/"+homeUUID
 	log.Print("URL: "+ url)
@@ -329,4 +331,3 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	log.Print("resourceHouseDelete:end")
 	return diags
 }
-
