@@ -181,3 +181,14 @@ Eg. $home --> returns all values
     $home[:domain_name] --? "sdsf.cloudfront.net"
 
 `exit`` to get out of the debugger
+
+## TF_VAR_ to store variables
+
+```sh
+export TF_VAR_terratowns_access_token="str34f34t3"
+gp env TF_VAR_terratowns_access_token="str34f34t3"
+```
+
+```tf
+token=var.terratowns_access_token
+```
