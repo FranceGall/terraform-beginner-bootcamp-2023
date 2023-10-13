@@ -1,28 +1,25 @@
-variable "teacherseat_user_uuid" {
-    type = string
-}
-variable "terratowns_access_token" {
-    type = string
-}
 variable "terratowns_endpoint" {
-    type = string
-}
-variable "bucket_name" {
-    type = string
+ type = string
 }
 
-variable "index_html_filepath" {
-  type = string
+variable "terratowns_access_token" {
+ type = string
 }
 
-variable "error_html_filepath" {
-  type = string
+variable "teacherseat_user_uuid" {
+ type = string
 }
 
-variable "content_version" {
-  type        = number
+variable "superfly" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
 
-variable "assets_path" {
-  type = string
+variable "henry" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
