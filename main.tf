@@ -5,33 +5,45 @@ terraform {
       version = "1.0.0"
     }
   }
+cloud {
+  organization = "ExamProPatrick"
+  workspaces {
+    name = "terra-house-superfly"
+    }
+  }
 }
 provider "terratowns" {
-//  endpoint = "http://localhost:4567/api"
-//  endpoint  = "https://terratowns.cloud/api"
   endpoint  = var.terratowns_endpoint
   user_uuid = var.teacherseat_user_uuid
   token     = var.terratowns_access_token
 }
-
-## Reference to module from main.tf
-module terrahouse_aws {
-  source = "./modules/terrahouse_aws"
-  user_uuid           = var.teacherseat_user_uuid
-//  bucket_name         = var.bucket_name
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version     = var.content_version
-  assets_path         = var.assets_path
+module "home_superfly_hosting" {
+  source          = "./modules/terrahome_aws"
+  user_uuid       = var.teacherseat_user_uuid
+  public_path     = var.superfly.public_path
+  content_version = var.superfly.content_version
 }
-
-resource "terratowns_home" "superfly" {
-  name = "SuperFly"
-  description = <<DESCRIPTION
+resource "terratowns_home" "home_superfly" {
+  name            = "SuperFly"
+  description     = <<DESCRIPTION
   Man's Game from the Bronx where everything is possible.
   DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
-//  domain_name = "patricio.cloudfront.net"
-  town= "missingo"
-  content_version = 1
+  domain_name     = module.home_superfly_hosting.domain_name
+  town            = "missingo"
+  content_version = var.superfly.content_version
 }
+#module "home_henry_hosting" {
+#  source          = "./modules/terrahome_aws"
+#  user_uuid       = var.teacherseat_user_uuid
+#  public_path     = var.henry.public_path
+#  content_version = var.henry.content_version
+#}
+#resource "terratowns_home" "home_henry" {
+#  name            = "Oh Henry Chocolate Bar"
+#  description     = <<DESCRIPTION
+#  I love Oh Henry! chocolate bars because they taste a lot better than Payday bars.
+#  DESCRIPTION
+#  domain_name     = module.home_henry_hosting.domain_name
+#  town            = "missingo"
+#  content_version = var.henry.content_version
+#}
